@@ -1,4 +1,9 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS");
+//header("Access-Control-Allow-Credentials: true");
+//header('Access-Control-Allow-Headers: Content-Type, Content-Range, Content-Disposition, Content-Description');
+
 require '.././libs/Slim/Slim.php';
 require_once 'dbHelper.php';
 
@@ -35,7 +40,7 @@ $app->post('/products', function() use ($app) {
     echoResponse(200, $rows);
 });
 
-$app->put('/products/:id', function($id) use ($app) { 
+$app->put('/products/:id', function($id) use ($app) {
     $data = json_decode($app->request->getBody());
     $condition = array('id'=>$id);
     $mandatory = array();
