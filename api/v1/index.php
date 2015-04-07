@@ -1,8 +1,12 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS");
-//header("Access-Control-Allow-Credentials: true");
-//header('Access-Control-Allow-Headers: Content-Type, Content-Range, Content-Disposition, Content-Description');
+
+/* Adding CORS Filter to RESTFul Webservice */
+// https://htet101.wordpress.com/2014/01/22/cors-with-angularjs-and-spring-rest/
+// http://fastcodenote.blogspot.com/2014/02/cors-get-post-delete-etc.html
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+header('Access-Control-Max-Age: 3600');
+header('Access-Control-Allow-Headers: Content-Type, X-Requested-With');
 
 require '.././libs/Slim/Slim.php';
 require_once 'dbHelper.php';
